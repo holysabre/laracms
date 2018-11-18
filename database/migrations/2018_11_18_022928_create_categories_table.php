@@ -30,7 +30,7 @@ class CreateCategoriesTable extends Migration
             $table->tinyInteger('status')->default(1)->comment('状态');
             $table->timestamps();
         });
-    }g
+    }
 
     /**
      * Reverse the migrations.
