@@ -35,6 +35,10 @@ trait CategoryTreeHelper
         return $lists;
     }
 
+    /**
+     * @return array
+     * 获取分类树
+     */
     public function getCategoryOptionsTree()
     {
         $categories = Category::query()->select('id','parent_id','name')
@@ -43,10 +47,12 @@ trait CategoryTreeHelper
 
         $lists = getTreeByRecursion($categories, 0);
 
-        $options = [];
+        $options = [
+            '0' => '顶级栏目',
+        ];
 
         foreach ($lists as $key=>$value){
-            $options[$value['id']] = $value['name'];
+            $options[$value['id']] = $value['text'];
         }
 
         return $options;

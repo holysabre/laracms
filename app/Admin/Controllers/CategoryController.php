@@ -63,8 +63,6 @@ class CategoryController extends Controller
      */
     public function edit($id, Content $content)
     {
-//        $options = $this->category_model->getCategoryOptionsTree();
-//        dump($options);
         return $content
             ->header('Edit')
             ->description('description')
@@ -149,13 +147,12 @@ class CategoryController extends Controller
         $form = new Form(new Category);
 
         $options = $this->category_model->getCategoryOptionsTree();
-        dump($options);
         $form->select('parent_id', '父ID')->options($options);
         $form->text('name', 'Name');
         $form->number('order', 'Order');
         $form->text('alias', 'Alias');
         $form->text('icon', 'Icon');
-        $form->image('image', 'Image');
+        $form->image('image', 'Image')->uniqueName();
         $form->url('link', 'Link');
         $form->text('seo_title', 'Seo title');
         $form->text('seo_keywords', 'Seo keywords');
@@ -164,24 +161,30 @@ class CategoryController extends Controller
         $form->text('detail_template', 'Detail template');
         $form->switch('status', 'Status')->default(1);
 
-//        dump($form);
         $form->saving(function (Form $form) {
 
             if(!empty($form->model()->id)){
-                $arr = arrayListKey($this->category_model->all()->toArray());
-                dd([$form->model()->id,$form->parent_id]);
-                $is_self = arrayIsSelf($arr,$form->model()->id,$form->parent_id);
-
-                if($is_self){
+                if($form->model()->id == $form->parent_id){
                     $error = new MessageBag([
                         'title'   => '父ID值有误',
                         'message' => '父ID不允许为自身',
+                    ]);
+                    return back()->with(compact('error'));
+                }
+            }
+
+            if(!empty($form->model()->id)){
+                $categories = $this->category_model->all()->toArray();
+                $ids = getSonIds($form->model()->id,$categories);
+                if(in_array($form->parent_id,$ids)){
+                    $error = new MessageBag([
+                        'title'   => '父ID值有误',
+                        'message' => '父ID不允许为自身的子集',
                     ]);
 
                     return back()->with(compact('error'));
                 }
             }
-
         });
 
         return $form;

@@ -39,9 +39,9 @@ function getTreeByRecursion($array, $pid = 0, $level = 0, $pid_key = 'parent_id'
             //父节点为根节点的节点,级别为0，也就是第一级
             $flg = str_repeat('|--',$level);
             // 更新 名称值
-            $value['name'] = $flg.$value['name'];
+            $value['text'] = $flg.$value['name'];
             // 输出 名称
-            echo $value['name']."<br/>";
+//            echo $value['name']."<br/>";
             //把数组放到list中
             $list[] = $value;
             //把这个节点从数组中移除,减少后续递归消耗
@@ -78,19 +78,95 @@ function getTreeByCite($array,$pid_key = 'parent_id')
 }
 
 /**
- * @param $array
  * @param $id
- * @param $value
- * @param string $pid
- * @return bool
- * 判断数组中的$pid值是否为自身$value
+ * @param array $array
+ * @param int $level
+ * @return array
+ * 获取指定id的所有子集
  */
-function arrayIsSelf($array, $id, $value, $pid = 'parent_id')
+function getSon($id, $array = [], $level = 1)
 {
-    return $array[$id][$pid] == $value ? true : false;
+    static $list = [];
+    foreach ($array as $key=>$value){
+        if($id == $value['parent_id']){
+            $flg = str_repeat('|--',$level);
+            // 更新 名称值
+            $value['text'] = $flg.$value['name'];
+            $value['level'] = $level;
+            // 输出 名称
+//            echo $v['n']."<br/>";
+            //存放数组中
+            $list[] = $value;
+            // 删除查询过的数组
+            unset($array[$key]);
+            getSon($value['id'],$array,$level++);
+        }else{
+            unset($array[$key]);
+        }
+    }
+    return $list;
 }
 
-function arrayIsChild($array, $id, $value, $pid = 'parent_id')
+/**
+ * @param $id_pid
+ * @param array $array
+ * @param int $level
+ * @return array
+ * 获取所有父级
+ */
+function getParent($id_pid,$array=array(), $level = 2)
 {
+    static $list=array();
+    foreach($array as $key=>$value)
+    {
+        if($value['id']== $id_pid)
+        {   //父级分类id等于所查找的id
+            $flg = str_repeat('|--',$level);
+            // 更新 名称值
+            $value['name'] = $flg.$value['name'];
+            // 输出 名称
+//            echo $value['n']."<br/>";
+            $list[]=$value;
+            // 删除数组
+            //unset($array[$key]);
+            if($value['parent_id']>=0){
+                getParent($value['parent_id'],$array,$level--);
+            }
+        }else{
+            // 删除数组,减少递归次数
+            unset($array[$key]);
+        }
+    }
+    return $list;
+}
 
+function getSonTree($array)
+{
+    $tree = [];
+    $items = arrayListKey($array);
+    foreach ($items as $key => $value) {
+        if (isset($items[$value['parent_id']])) {
+            $items[$value['parent_id']]['son'][] = &$items[$key];
+        } else {
+            $tree[] = &$items[$key];
+        }
+    }
+    return $tree;
+}
+
+function getSonIds($id,$array)
+{
+    static $ids = [];
+    foreach ($array as $key=>$value){
+        if($id == $value['parent_id']){
+            //存放数组中
+            $ids[] = $value['id'];
+            // 删除查询过的数组
+            unset($array[$key]);
+            getSonIds($value['id'],$array);
+        }else{
+            unset($array[$key]);
+        }
+    }
+    return $ids;
 }
