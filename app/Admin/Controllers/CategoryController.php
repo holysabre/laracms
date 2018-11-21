@@ -63,7 +63,8 @@ class CategoryController extends Controller
      */
     public function edit($id, Content $content)
     {
-//        dump(Category::tree());
+//        $options = $this->category_model->getCategoryOptionsTree();
+//        dump($options);
         return $content
             ->header('Edit')
             ->description('description')
@@ -147,7 +148,9 @@ class CategoryController extends Controller
     {
         $form = new Form(new Category);
 
-        $form->select('parent_id', '父ID')->options($this->category_model->getCategoryOptions());
+        $options = $this->category_model->getCategoryOptionsTree();
+        dump($options);
+        $form->select('parent_id', '父ID')->options($options);
         $form->text('name', 'Name');
         $form->number('order', 'Order');
         $form->text('alias', 'Alias');
@@ -161,7 +164,7 @@ class CategoryController extends Controller
         $form->text('detail_template', 'Detail template');
         $form->switch('status', 'Status')->default(1);
 
-        dump($form);
+//        dump($form);
         $form->saving(function (Form $form) {
 
             if(!empty($form->model()->id)){

@@ -35,10 +35,20 @@ trait CategoryTreeHelper
         return $lists;
     }
 
-//    public function isSelf($id)
-//    {
-//        $categoies = listKey(Category::all()->toArray());
-//        return $categoies;
-//    }
+    public function getCategoryOptionsTree()
+    {
+        $categories = Category::query()->select('id','parent_id','name')
+            ->where('status','=',1)
+            ->get()->toArray();
 
+        $lists = getTreeByRecursion($categories, 0);
+
+        $options = [];
+
+        foreach ($lists as $key=>$value){
+            $options[$value['id']] = $value['name'];
+        }
+
+        return $options;
+    }
 }
