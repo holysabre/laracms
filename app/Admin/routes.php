@@ -13,5 +13,6 @@ Route::group([
     $router->get('/', 'HomeController@index');
     $router->resource('pages', PageController::class);
     $router->resource('categories', CategoryController::class);
+    $router->resource('modules', ModuleController::class);
 
 });

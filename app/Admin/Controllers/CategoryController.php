@@ -4,6 +4,7 @@ namespace App\Admin\Controllers;
 
 use App\Models\Category;
 use App\Http\Controllers\Controller;
+use App\Models\Module;
 use Encore\Admin\Controllers\HasResourceActions;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -145,9 +146,11 @@ class CategoryController extends Controller
     protected function form()
     {
         $form = new Form(new Category);
+        $module_model = new Module();
 
         $options = $this->category_model->getCategoryOptionsTree();
         $form->select('parent_id', '父ID')->options($options);
+        $form->select('module_id', '模块ID')->options($module_model->getOptions());
         $form->text('name', 'Name');
         $form->number('order', 'Order');
         $form->text('alias', 'Alias');

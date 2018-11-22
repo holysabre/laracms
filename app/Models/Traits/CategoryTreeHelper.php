@@ -36,14 +36,18 @@ trait CategoryTreeHelper
     }
 
     /**
+     * @param int $module_id 模块id
      * @return array
      * 获取分类树
      */
-    public function getCategoryOptionsTree()
+    public function getCategoryOptionsTree($module_id = 0)
     {
-        $categories = Category::query()->select('id','parent_id','name')
-            ->where('status','=',1)
-            ->get()->toArray();
+        $query = Category::query()->select('id','parent_id','name')
+            ->where('status','=',1);
+        if($module_id){
+            $query->where('module_id','=',$module_id);
+        }
+        $categories = $query->get()->toArray();
 
         $lists = getTreeByRecursion($categories, 0);
 
