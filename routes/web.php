@@ -18,3 +18,5 @@ Route::get('index','IndexController@index');
 
 Route::post('upload/editor','UploadController@editorUpload')->name('upload.editor');
 Route::post('/uploadFile', 'UploadController@uploadImg');
+
+Route::resource('pages','PageController',['only'=>['index','show']]);
