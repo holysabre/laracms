@@ -16,6 +16,11 @@ class Page extends Model
         'category_id','title','content','excerpt','slug','order','status'
     ];
 
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
     public function link($params = [])
     {
         $params = array_merge([$this->id], $params);

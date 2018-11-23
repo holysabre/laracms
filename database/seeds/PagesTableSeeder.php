@@ -12,6 +12,7 @@ class PagesTableSeeder extends Seeder
      */
     public function run()
     {
+        Page::truncate();
         $pages = factory(Page::class)->times(50)->make();
 
         Page::insert($pages->toArray());

@@ -211,7 +211,7 @@ return [
     | Supported: "tencent", "google", "yandex".
     |
     */
-    'map_provider' => 'google',
+    'map_provider' => 'tencent',
 
     /*
     |--------------------------------------------------------------------------
@@ -312,6 +312,17 @@ return [
     |
     */
     'extensions' => [
-
+//        'wang-editor' => [
+//
+//            // 如果要关掉这个扩展，设置为false
+//            'enable' => true,
+//
+//            // 编辑器的配置
+//            'config' => [
+//                'debug' => true,
+//                'uploadImgServer' => '/upload/editor',
+////                'uploadFileName' => 'upload_file'
+//            ]
+//        ],
     ],
 ];

@@ -15,3 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('index','IndexController@index');
+
+Route::post('upload/editor','UploadController@editorUpload')->name('upload.editor');
+Route::post('/uploadFile', 'UploadController@uploadImg');

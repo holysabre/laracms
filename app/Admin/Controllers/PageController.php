@@ -83,15 +83,22 @@ class PageController extends Controller
         $grid = new Grid(new Page);
 
         $grid->id('ID');
-        $grid->category_id('分类');
+        //
+//        $grid->category_id('分类')->display(function ($category_id){
+//            $category = Category::find($category_id);
+//            return $category ? $category->name : $category_id;
+//        });
+        $grid->column('category.name');//一对一模型
         $grid->title('标题');
 //        $grid->content('内容');
 //        $grid->excerpt('摘要');
         $grid->slug('静态名');
         $grid->order('排序');
-        $grid->status('状态');
+        $grid->status('Status')->display(function ($status){
+            return $status ? '<p class="text-success">启用</p>' : '<p class="text-muted">禁用</p>';
+        });
         $grid->created_at('创建时间');
-        $grid->updated_at('修改时间');
+//        $grid->updated_at('修改时间');
 
         return $grid;
     }
@@ -130,10 +137,10 @@ class PageController extends Controller
         $form = new Form(new Page);
 
         $category_model = new Category();
-        $options = $category_model->getCategoryOptionsTree();
+        $options = $category_model->getCategoryOptionsTree(1);
         $form->select('category_id', '分类')->options($options);
         $form->text('title', '标题');
-        $form->textarea('content', '内容');
+        $form->editor('content', '内容');
         $form->text('excerpt', '摘要');
         $form->text('slug', '静态名');
         $form->number('order', '排序');

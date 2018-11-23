@@ -4,8 +4,9 @@ namespace App\Providers;
 
 use App\Models\Category;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\Validator;
 use Encore\Admin\Config\Config;
+use Faker\Generator as FakerGenerator;
+use Faker\Factory as FakerFactory;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -18,6 +19,10 @@ class AppServiceProvider extends ServiceProvider
     {
         Category::observe(\App\Observers\CategoryObserver::class);
         Config::load();
+        $this->app->singleton(FakerGenerator::class ,function(){
+            return FakerFactory::create('zh_CN');
+        });
+
     }
 
     /**

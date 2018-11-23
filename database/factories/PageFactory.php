@@ -8,7 +8,7 @@ $factory->define(\App\Models\Page::class, function (Faker $faker) {
 
     return [
         'title' => $faker->sentence,
-        'content' => $faker->paragraph,
+        'content' => $faker->text,
         'created_at' => $created_at,
         'updated_at' => $updated_at,
     ];

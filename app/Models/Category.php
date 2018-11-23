@@ -22,6 +22,11 @@ class Category extends Model
         $this->setTitleColumn('name');
     }
 
+    public function page()
+    {
+        return $this->hasMany(Page::class);
+    }
+
     public function getCategoriesByParentId($parent_id)
     {
         $categories = $this->query()->where('parent_id','=',$parent_id)->get();
