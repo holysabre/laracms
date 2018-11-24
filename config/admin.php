@@ -312,17 +312,10 @@ return [
     |
     */
     'extensions' => [
-//        'wang-editor' => [
-//
-//            // 如果要关掉这个扩展，设置为false
-//            'enable' => true,
-//
-//            // 编辑器的配置
-//            'config' => [
-//                'debug' => true,
-//                'uploadImgServer' => '/upload/editor',
-////                'uploadFileName' => 'upload_file'
-//            ]
-//        ],
+        'media-manager' => [
+
+            // Select a local disk that you configured in `config/filesystem.php`
+            'disk' => 'public'
+        ],
     ],
 ];
