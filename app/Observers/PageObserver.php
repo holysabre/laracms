@@ -8,8 +8,7 @@
 
 namespace App\Observers;
 
-
-use App\Handlers\TranslateHandler;
+use App\Jobs\TranslateSlug;
 use App\Models\Page;
 
 class PageObserver
@@ -23,9 +22,9 @@ class PageObserver
 
     public function saved(Page $page)
     {
+        //翻译标题 并储存到slug字段
         if(empty($page->slug)){
-            $page->slug = app(TranslateHandler::class)->translate($page->title);
-            $page->save();
+            dispatch(new TranslateSlug($page));
         }
     }
 
