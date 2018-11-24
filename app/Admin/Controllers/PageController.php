@@ -82,23 +82,17 @@ class PageController extends Controller
     {
         $grid = new Grid(new Page);
 
-        $grid->id('ID');
-        //
-//        $grid->category_id('分类')->display(function ($category_id){
-//            $category = Category::find($category_id);
-//            return $category ? $category->name : $category_id;
-//        });
-        $grid->column('category.name');//一对一模型
-        $grid->title('标题');
-//        $grid->content('内容');
-//        $grid->excerpt('摘要');
-        $grid->slug('静态名');
-        $grid->order('排序');
-        $grid->status('Status')->display(function ($status){
-            return $status ? '<p class="text-success">启用</p>' : '<p class="text-muted">禁用</p>';
-        });
-        $grid->created_at('创建时间');
-//        $grid->updated_at('修改时间');
+        $grid->id('ID')->sortable();
+        $grid->column('category.name','栏目')->sortable();//一对一模型
+        $grid->title('标题')->editable();
+        $grid->slug('静态名')->editable();
+        $grid->order('排序')->sortable()->editable();
+        $states = [
+            'on'  => ['value' => 1, 'text' => '打开', 'color' => 'primary'],
+            'off' => ['value' => 2, 'text' => '关闭', 'color' => 'default'],
+        ];
+        $grid->status('状态')->sortable()->switch($states);
+        $grid->created_at('创建时间')->sortable();
 
         return $grid;
     }

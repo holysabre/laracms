@@ -9,11 +9,7 @@ class IndexController extends Controller
 {
     public function index()
     {
-        $categories = Category::query()->select('id','parent_id','name')->get()->toArray();
-//        $arr = arrayListKey($categories);
-//        $children = getSonTree($arr);
-//        $is_child = arrayIsChild($children,4);
-        $ids = getSonIds(4,$categories);
-        dump($ids);
+        $config = config('website_title');
+        dump($config);
     }
 }
