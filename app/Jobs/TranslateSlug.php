@@ -9,7 +9,6 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use App\Models\Page;
 use App\Handlers\TranslateHandler;
-use Illuminate\Support\Facades\DB;
 
 class TranslateSlug implements ShouldQueue
 {
@@ -35,6 +34,6 @@ class TranslateSlug implements ShouldQueue
     public function handle()
     {
         $slug = app(TranslateHandler::class)->translate($this->page->title);
-        DB::table('page')->where('id',$this->page->id)->update(['slug'=>$slug]);
+        \DB::table('pages')->where('id',$this->page->id)->update(['slug'=>$slug]);
     }
 }
