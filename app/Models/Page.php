@@ -21,9 +21,9 @@ class Page extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function link($params = [])
-    {
-        $params = array_merge([$this->id], $params);
-        return route('pages.show', $params);
-    }
+//    public function link($params = [])
+//    {
+//        $params = array_merge([$this->id], $params);
+//        return route('pages.show', $params);
+//    }
 }

@@ -151,18 +151,18 @@ class CategoryController extends Controller
         $options = $this->category_model->getCategoryOptionsTree();
         $form->select('parent_id', '父ID')->options($options);
         $form->select('module_id', '模块ID')->options($module_model->getOptions());
-        $form->text('name', 'Name');
-        $form->number('order', 'Order');
-        $form->text('alias', 'Alias');
-        $form->text('icon', 'Icon');
-        $form->image('image', 'Image')->uniqueName();
-        $form->url('link', 'Link');
-        $form->text('seo_title', 'Seo title');
-        $form->text('seo_keywords', 'Seo keywords');
-        $form->textarea('seo_description', 'Seo description');
-        $form->text('index_template', 'Index template');
-        $form->text('detail_template', 'Detail template');
-        $form->switch('status', 'Status')->default(1);
+        $form->text('name', '名称');
+        $form->number('order', '排序');
+        $form->text('alias', '别名');
+        $form->icon('icon', '图标');
+        $form->image('image', '图片')->uniqueName();
+        $form->url('link', '链接');
+        $form->text('seo_title', 'Seo 标题');
+        $form->text('seo_keywords', 'Seo 关键词');
+        $form->textarea('seo_description', 'Seo 描述');
+        $form->text('index_template', '首页模版');
+        $form->text('detail_template', '详情模版');
+        $form->switch('status', '状态')->default(1);
 
         $form->saving(function (Form $form) {
 

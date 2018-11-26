@@ -4,6 +4,7 @@ namespace App\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Encore\Admin\Reporter\Reporter;
 
 class Handler extends ExceptionHandler
 {
