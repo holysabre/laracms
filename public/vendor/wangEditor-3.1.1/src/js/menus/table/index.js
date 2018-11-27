@@ -218,7 +218,7 @@ Table.prototype = {
             return
         }
 
-        // 获取 td articles
+        // 获取 td index
         const $tr = $selectionELem.parent()
         const $tds = $tr.children()
         const tdLength = $tds.length
@@ -234,7 +234,7 @@ Table.prototype = {
             }
         })
 
-        // 获取 tr articles
+        // 获取 tr index
         const $tbody = $tr.parent()
         const $trs = $tbody.children()
         const trLength = $trs.length

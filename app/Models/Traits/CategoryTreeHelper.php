@@ -37,11 +37,10 @@ trait CategoryTreeHelper
 
     /**
      * @param int $module_id 模块id
-     * @param int $is_top 是否开启顶级栏目
      * @return array
      * 获取分类树
      */
-    public function getCategoryOptionsTree($module_id = 0,$is_top = true)
+    public function getCategoryOptionsTree($module_id = 0)
     {
         $query = Category::query()->select('id','parent_id','name')
             ->where('status','=',1);
@@ -52,9 +51,9 @@ trait CategoryTreeHelper
 
         $lists = getTreeByRecursion($categories, 0);
 
-        $options = $is_top ? [
+        $options = [
             '0' => '顶级栏目',
-        ] : [];
+        ];
 
         foreach ($lists as $key=>$value){
             $options[$value['id']] = $value['text'];

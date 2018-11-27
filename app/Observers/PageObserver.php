@@ -24,7 +24,7 @@ class PageObserver
     {
         //翻译标题 并储存到slug字段
         if(empty($page->slug)){
-            dispatch(new TranslateSlug('page',$page->id,'pages'));
+            dispatch(new TranslateSlug($page));
         }
     }
 

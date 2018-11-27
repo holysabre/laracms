@@ -277,7 +277,7 @@
 				return;
 			}
 
-			// get the articles of the dragged element within its parent
+			// get the index of the dragged element within its parent
 			oldIndex = _index(target, options.draggable);
 
 			// Check filter
@@ -792,7 +792,7 @@
 						cloneEl && cloneEl.parentNode.removeChild(cloneEl);
 
 						if (dragEl.nextSibling !== nextEl) {
-							// Get the articles of the dragged element within its parent
+							// Get the index of the dragged element within its parent
 							newIndex = _index(dragEl, options.draggable);
 
 							if (newIndex >= 0) {
@@ -1166,7 +1166,7 @@
 	}
 
 	/**
-	 * Returns the articles of an element within its parent for a selected set of
+	 * Returns the index of an element within its parent for a selected set of
 	 * elements
 	 * @param  {HTMLElement} el
 	 * @param  {selector} selector

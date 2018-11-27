@@ -58,7 +58,7 @@ class TranslateHandler
         $reason = $response->getReasonPhrase(); // OK
         $body = $response->getBody();
 
-        logger('===TranslateLog==='.print_r(json_decode($body,true),1));
+        Log::info('TranslateLog',json_decode($body,true));
 
         if($code == 200 && $reason == 'OK'){
             $body_arr = json_decode($body,true);

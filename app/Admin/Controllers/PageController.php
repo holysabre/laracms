@@ -88,8 +88,8 @@ class PageController extends Controller
         $grid->slug('静态名')->editable();
         $grid->order('排序')->sortable()->editable();
         $states = [
-            'on'  => ['value' => 1, 'text' => '启用', 'color' => 'primary'],
-            'off' => ['value' => 2, 'text' => '禁用', 'color' => 'default'],
+            'on'  => ['value' => 1, 'text' => '打开', 'color' => 'primary'],
+            'off' => ['value' => 2, 'text' => '关闭', 'color' => 'default'],
         ];
         $grid->status('状态')->sortable()->switch($states);
         $grid->created_at('创建时间')->sortable();
@@ -135,7 +135,7 @@ class PageController extends Controller
         $form->select('category_id', '分类')->options($options);
         $form->text('title', '标题');
         $form->editor('content', '内容');
-        $form->textarea('excerpt', '摘要');
+        $form->text('excerpt', '摘要');
         $form->text('slug', '静态名');
         $form->number('order', '排序');
         $form->switch('status', '状态')->default(1);

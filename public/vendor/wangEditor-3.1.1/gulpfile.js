@@ -1,4 +1,5 @@
 const path = require('path')
+const path = require('path')
 const fs = require('fs')
 const gulp = require('gulp')
 const rollup = require('rollup')
@@ -59,7 +60,7 @@ gulp.task('script', () => {
     // rollup 打包 js 模块
     return rollup.rollup({
         // 入口文件
-        entry: './src/js/articles.js',
+        entry: './src/js/index.js',
         plugins: [
             // 对原始文件启动 eslint 检查，配置参见 ./.eslintrc.json
             eslint(),
