@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f967a8f5b41c5cf899ed9796da799ff4",
+    "content-hash": "7392f93d652aa24d24881dbe1121fa58",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -1773,6 +1773,60 @@
                 "setting"
             ],
             "time": "2018-10-24T15:57:50+00:00"
+        },
+        {
+            "name": "laravel-admin-ext/daterangepicker",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel-admin-extensions/daterangepicker.git",
+                "reference": "f38de46062203973ecfea1ab4092839eef77e269"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel-admin-extensions/daterangepicker/zipball/f38de46062203973ecfea1ab4092839eef77e269",
+                "reference": "f38de46062203973ecfea1ab4092839eef77e269",
+                "shasum": ""
+            },
+            "require": {
+                "encore/laravel-admin": "~1.6",
+                "php": ">=7.0.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~6.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Encore\\DateRangePicker\\DateRangePickerServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Encore\\DateRangePicker\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "song",
+                    "email": "zosong@126.com"
+                }
+            ],
+            "description": "Integrates daterangepicker into laravel-admin",
+            "homepage": "https://github.com/laravel-admin-ext/daterangepicker",
+            "keywords": [
+                "daterangepicker",
+                "extension",
+                "form",
+                "laravel-admin"
+            ],
+            "time": "2018-09-13T17:50:59+00:00"
         },
         {
             "name": "laravel-admin-ext/helpers",

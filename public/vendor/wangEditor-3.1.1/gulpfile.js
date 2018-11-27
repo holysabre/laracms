@@ -59,7 +59,7 @@ gulp.task('script', () => {
     // rollup 打包 js 模块
     return rollup.rollup({
         // 入口文件
-        entry: './src/js/index.js',
+        entry: './src/js/articles.js',
         plugins: [
             // 对原始文件启动 eslint 检查，配置参见 ./.eslintrc.json
             eslint(),

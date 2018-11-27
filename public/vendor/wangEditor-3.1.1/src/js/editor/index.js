@@ -112,7 +112,7 @@ Editor.prototype = {
         // 设置通用的 class
         $toolbarElem.addClass('w-e-toolbar')
         $textContainerElem.addClass('w-e-text-container')
-        $textContainerElem.css('z-index', zIndex)
+        $textContainerElem.css('z-articles', zIndex)
         $textElem.addClass('w-e-text')
 
         // 添加 ID

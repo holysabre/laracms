@@ -7406,7 +7406,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * Get a segment from the URI (1 based index).
+         * Get a segment from the URI (1 based articles).
          *
          * @param int $index
          * @param string|null $default
@@ -8164,7 +8164,7 @@ namespace Illuminate\Support\Facades {
         /**
          * Returns the root path from which this request is executed.
          * 
-         * Suppose that an index.php file instantiates this request object:
+         * Suppose that an articles.php file instantiates this request object:
          * 
          *  * http://localhost/index.php         returns an empty string
          *  * http://localhost/index.php/page    returns an empty string
@@ -8186,7 +8186,7 @@ namespace Illuminate\Support\Facades {
          * The base URL never ends with a /.
          * 
          * This is similar to getBasePath(), except that it also includes the
-         * script filename (e.g. index.php) if one exists.
+         * script filename (e.g. articles.php) if one exists.
          *
          * @return string The raw URL (i.e. not urldecoded)
          * @static 

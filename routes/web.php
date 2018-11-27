@@ -14,9 +14,13 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('index','IndexController@index');
+Route::get('articles','IndexController@articles');
 
 Route::post('upload/editor','UploadController@editorUpload')->name('upload.editor');
 Route::post('/uploadFile', 'UploadController@uploadImg');
 
-Route::resource('pages','PageController',['only'=>['index','show']]);
+//Route::group(['namespace'=>'home','prefix'=>'home'],function (){
+//    Route::resource('home/index','IndexController',['only'=>['index']]);
+//    Route::resource('home/pages','PageController',['only'=>['index','show']]);
+//    Route::resource('home/articles','ArticleController--',['only'=>['index','show']]);
+//});

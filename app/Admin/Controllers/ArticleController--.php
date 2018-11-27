@@ -87,11 +87,23 @@ class ArticleController extends Controller
         $grid->title('标题')->editable();
         $grid->column('picture','图片')->image('',100,100);
         $grid->click_count('点击数')->sortable();
-        $grid->slug('静态名')->editbale();
+        $grid->slug('静态名')->editable();
         $grid->order('排序')->editable();
         $grid->status('状态')->sortable()->switch(config('form.status_options'));
         $grid->attribute('属性')->checkbox(config('form.attribute_options'));
         $grid->created_at('创建时间')->sortable();
+
+        $grid->filter(function($filter){
+
+            // 去掉默认的id过滤器
+            $filter->disableIdFilter();
+            $filter->like('title', '标题');
+            $filter->between('created_at', '创建时间')->datetime();
+            $filter->scope('new', '最近修改')
+                ->whereDate('created_at', date('Y-m-d'))
+                ->orWhere('updated_at', date('Y-m-d'));
+
+        });
 
         return $grid;
     }
