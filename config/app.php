@@ -169,6 +169,7 @@ return [
          */
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Mews\Purifier\PurifierServiceProvider::class,
+        Mews\Captcha\CaptchaServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -227,6 +228,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'Captcha' => Mews\Captcha\CaptchaServiceProvider::class,
 
     ],
 

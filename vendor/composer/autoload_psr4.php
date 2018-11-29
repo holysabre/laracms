@@ -45,6 +45,7 @@ return array(
     'Overtrue\\Pinyin\\' => array($vendorDir . '/overtrue/pinyin/src'),
     'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
     'Mews\\Purifier\\' => array($vendorDir . '/mews/purifier/src'),
+    'Mews\\Captcha\\' => array($vendorDir . '/mews/captcha/src'),
     'League\\Flysystem\\' => array($vendorDir . '/league/flysystem/src'),
     'Laravel\\Tinker\\' => array($vendorDir . '/laravel/tinker/src'),
     'Laravel\\Horizon\\' => array($vendorDir . '/laravel/horizon/src'),

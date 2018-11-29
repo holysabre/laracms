@@ -24,6 +24,7 @@ class ComposerStaticInitbf7041859e0cdd3fecc88e00cbd71b4b
         '0c3c22e27afa83be19b4c938f4c6e9ea' => __DIR__ . '/..' . '/spatie/laravel-backup/src/Helpers/functions.php',
         '4a1f389d6ce373bda9e57857d3b61c84' => __DIR__ . '/..' . '/barryvdh/laravel-debugbar/src/helpers.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
+        '5e8fe2a5ffaded85af682684fe3bbf5a' => __DIR__ . '/..' . '/mews/captcha/src/helpers.php',
         'cb61d74ad51d00867155534456b38b23' => __DIR__ . '/..' . '/mews/purifier/src/helpers.php',
     );
 
@@ -93,6 +94,7 @@ class ComposerStaticInitbf7041859e0cdd3fecc88e00cbd71b4b
         array (
             'Monolog\\' => 8,
             'Mews\\Purifier\\' => 14,
+            'Mews\\Captcha\\' => 13,
         ),
         'L' => 
         array (
@@ -326,6 +328,10 @@ class ComposerStaticInitbf7041859e0cdd3fecc88e00cbd71b4b
         array (
             0 => __DIR__ . '/..' . '/mews/purifier/src',
         ),
+        'Mews\\Captcha\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/mews/captcha/src',
+        ),
         'League\\Flysystem\\' => 
         array (
             0 => __DIR__ . '/..' . '/league/flysystem/src',
@@ -547,6 +553,7 @@ class ComposerStaticInitbf7041859e0cdd3fecc88e00cbd71b4b
         'App\\Admin\\Controllers\\AuthController' => __DIR__ . '/../..' . '/app/Admin/Controllers/AuthController.php',
         'App\\Admin\\Controllers\\CategoryController' => __DIR__ . '/../..' . '/app/Admin/Controllers/CategoryController.php',
         'App\\Admin\\Controllers\\ExampleController' => __DIR__ . '/../..' . '/app/Admin/Controllers/ExampleController.php',
+        'App\\Admin\\Controllers\\GuestbookController' => __DIR__ . '/../..' . '/app/Admin/Controllers/GuestbookController.php',
         'App\\Admin\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Admin/Controllers/HomeController.php',
         'App\\Admin\\Controllers\\ModuleController' => __DIR__ . '/../..' . '/app/Admin/Controllers/ModuleController.php',
         'App\\Admin\\Controllers\\PageController' => __DIR__ . '/../..' . '/app/Admin/Controllers/PageController.php',
@@ -560,6 +567,11 @@ class ComposerStaticInitbf7041859e0cdd3fecc88e00cbd71b4b
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\Home\\ArticleController' => __DIR__ . '/../..' . '/app/Http/Controllers/Home/ArticleController.php',
+        'App\\Http\\Controllers\\Home\\BaseController' => __DIR__ . '/../..' . '/app/Http/Controllers/Home/BaseController.php',
+        'App\\Http\\Controllers\\Home\\GuestbookController' => __DIR__ . '/../..' . '/app/Http/Controllers/Home/GuestbookController.php',
+        'App\\Http\\Controllers\\Home\\IndexController' => __DIR__ . '/../..' . '/app/Http/Controllers/Home/IndexController.php',
+        'App\\Http\\Controllers\\Home\\PageController' => __DIR__ . '/../..' . '/app/Http/Controllers/Home/PageController.php',
         'App\\Http\\Controllers\\IndexController' => __DIR__ . '/../..' . '/app/Http/Controllers/IndexController.php',
         'App\\Http\\Controllers\\PageController' => __DIR__ . '/../..' . '/app/Http/Controllers/PageController.php',
         'App\\Http\\Controllers\\UploadController' => __DIR__ . '/../..' . '/app/Http/Controllers/UploadController.php',
@@ -579,7 +591,6 @@ class ComposerStaticInitbf7041859e0cdd3fecc88e00cbd71b4b
         'App\\Models\\Page' => __DIR__ . '/../..' . '/app/Models/Page.php',
         'App\\Models\\Traits\\CategoryTreeHelper' => __DIR__ . '/../..' . '/app/Models/Traits/CategoryTreeHelper.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
-        'App\\Observers\\ArticleObserver' => __DIR__ . '/../..' . '/app/Observers/ArticleObserver.php',
         'App\\Observers\\CategoryObserver' => __DIR__ . '/../..' . '/app/Observers/CategoryObserver.php',
         'App\\Observers\\PageObserver' => __DIR__ . '/../..' . '/app/Observers/PageObserver.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
@@ -3557,6 +3568,11 @@ class ComposerStaticInitbf7041859e0cdd3fecc88e00cbd71b4b
         'League\\Flysystem\\Util\\ContentListingFormatter' => __DIR__ . '/..' . '/league/flysystem/src/Util/ContentListingFormatter.php',
         'League\\Flysystem\\Util\\MimeType' => __DIR__ . '/..' . '/league/flysystem/src/Util/MimeType.php',
         'League\\Flysystem\\Util\\StreamHasher' => __DIR__ . '/..' . '/league/flysystem/src/Util/StreamHasher.php',
+        'Mews\\Captcha\\Captcha' => __DIR__ . '/..' . '/mews/captcha/src/Captcha.php',
+        'Mews\\Captcha\\CaptchaController' => __DIR__ . '/..' . '/mews/captcha/src/CaptchaController.php',
+        'Mews\\Captcha\\CaptchaServiceProvider' => __DIR__ . '/..' . '/mews/captcha/src/CaptchaServiceProvider.php',
+        'Mews\\Captcha\\Facades\\Captcha' => __DIR__ . '/..' . '/mews/captcha/src/Facades/Captcha.php',
+        'Mews\\Captcha\\LumenCaptchaController' => __DIR__ . '/..' . '/mews/captcha/src/LumenCaptchaController.php',
         'Mews\\Purifier\\Facades\\Purifier' => __DIR__ . '/..' . '/mews/purifier/src/Facades/Purifier.php',
         'Mews\\Purifier\\Purifier' => __DIR__ . '/..' . '/mews/purifier/src/Purifier.php',
         'Mews\\Purifier\\PurifierServiceProvider' => __DIR__ . '/..' . '/mews/purifier/src/PurifierServiceProvider.php',
