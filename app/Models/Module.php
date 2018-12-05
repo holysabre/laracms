@@ -7,8 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class Module extends Model
 {
     protected $fillable = [
-        'name','description','status','type'
+        'name','description','status','type','index_template','detail_template'
     ];
+
+    public function category()
+    {
+        return $this->hasMany(Category::class);
+    }
 
     public function getOptions(){
         $modules = $this->query()->select('id','name')

@@ -19,8 +19,14 @@ Route::get('articles','IndexController@articles');
 Route::post('upload/editor','UploadController@editorUpload')->name('upload.editor');
 Route::post('/uploadFile', 'UploadController@uploadImg');
 
-//Route::group(['namespace'=>'home','prefix'=>'home'],function (){
-//    Route::resource('home/index','IndexController',['only'=>['index']]);
-//    Route::resource('home/pages','PageController',['only'=>['index','show']]);
-//    Route::resource('home/articles','ArticleController--',['only'=>['index','show']]);
-//});
+Route::group(['namespace'=>'home','prefix'=>'home'],function (){
+    Route::resource('/','IndexController',['only'=>['index']]);
+    Route::resource('page','PageController',['only'=>['index','show']]);
+//    Route::resource('article','ArticleController',['only'=>['index','show']]);
+
+    Route::group(['prefix'=>'article'],function(){
+        Route::get('/','ArticleController@index')->name('home.article');
+        Route::get('/{category}','ArticleController@index');
+        Route::get('/{category}/{article}','ArticleController@show');
+    });
+});

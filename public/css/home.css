@@ -1,0 +1,87 @@
+figure{
+    margin: 0;
+    padding: 0;
+}
+.container{
+    width: 1200px;
+    margin: 0 auto;
+}
+.clear{
+    clear: both;
+}
+
+.header{
+
+}
+
+.footer{
+    width: 100%;
+    height: 50px;
+    background: #666;
+}
+.footer .layui-container{
+    width: 1200px;
+}
+.footer .layui-container p{
+    line-height: 50px;
+    font-size: 14px;
+}
+.footer .layui-container p a{
+    color: #fff;
+}
+
+.page h3{
+    text-align: center;
+    line-height: 50px;
+    font-size: 18px;
+}
+.page aside{
+    font-size: 14px;
+    line-height: 25px;
+}
+
+.article{
+
+}
+
+
+.article-list{
+    width: 900px;
+    float: left;
+    margin-left: 100px;
+}
+.article-list li{
+    width: 200px;
+    float: left;
+    margin: 10px;
+    border: 1px solid #999999;
+    -webkit-transition: ease .3s;
+    -moz-transition: ease .3s;
+    -ms-transition: ease .3s;
+    -o-transition: ease .3s;
+    transition: ease .3s;
+}
+.article-list li figure{
+    width: 200px;
+}
+.article-list li figure img{
+    width: 200px;
+}
+.article-list li figure figcaption{
+    font-size: 14px;
+    text-align: center;
+    line-height: 30px;
+    background-color: #999;
+    color: #ffffff;
+    -webkit-transition: ease .3s;
+    -moz-transition: ease .3s;
+    -ms-transition: ease .3s;
+    -o-transition: ease .3s;
+    transition: ease .3s;
+}
+.article-list li:hover{
+    border: 1px solid #666;
+}
+.article-list li:hover figure figcaption{
+    background-color: #666;
+}

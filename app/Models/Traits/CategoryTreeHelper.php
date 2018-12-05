@@ -18,21 +18,21 @@ trait CategoryTreeHelper
 
     }
 
-    public function getCategoryOptions()
+    public static function getCategoryTree()
     {
-        $categories = Category::query()->select('id', 'name as text')
-            ->where('status','=',1)
-            ->get();
+        $category_list = session('category_list');
 
-        $lists = [];
+        if(!$category_list){
+            $categories = Category::query()->select('*')
+                ->where('status',1)
+                ->orderBy('order','asc')
+                ->get()->toArray();
 
-        foreach ($categories as $category) {
-            $lists[$category->id] = $category->text;
+            $category_list = getSonTree($categories);
+            session('category_list',$category_list);
         }
 
-        $this->categories = $lists;
-
-        return $lists;
+        return $category_list;
     }
 
     /**
@@ -60,5 +60,14 @@ trait CategoryTreeHelper
         }
 
         return $options;
+    }
+
+    public static function getIds($id)
+    {
+        $categories = Category::query()->select('id','parent_id')
+            ->where('status',1)
+            ->get()->toArray();
+        $ids = getSonIds($id,$categories);
+        return $ids;
     }
 }

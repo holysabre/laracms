@@ -1,6 +1,6 @@
 @extends('home.layouts.base')
 
-@yield('title','网站首页')
+@section('title','网站首页')
 
 @section('content')
     <section class="home">

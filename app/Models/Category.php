@@ -27,9 +27,20 @@ class Category extends Model
         return $this->hasMany(Page::class);
     }
 
+    public function article()
+    {
+        return $this->hasMany(Article::class);
+    }
+
+    public function module()
+    {
+        return $this->belongsTo(Module::class);
+    }
+
     public function getCategoriesByParentId($parent_id)
     {
         $categories = $this->query()->where('parent_id','=',$parent_id)->get();
         return $categories;
     }
+
 }

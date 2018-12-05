@@ -39,4 +39,22 @@ class Article extends Model
     {
         return explode(',',$attribute);
     }
+
+    public function scopeWithOrder($query, $order)
+    {
+        switch ($order)
+        {
+            default:
+                //最新
+                $query->recent();
+                break;
+        }
+        // 预加载防止 N+1 问题
+        return $query->with('category');
+    }
+
+    public function scopeRecent($query)
+    {
+        return $query->orderby('created_at','desc');
+    }
 }

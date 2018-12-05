@@ -8,6 +8,7 @@ use Illuminate\Support\ServiceProvider;
 use Encore\Admin\Config\Config;
 use Faker\Generator as FakerGenerator;
 use Faker\Factory as FakerFactory;
+use View;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -25,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(FakerGenerator::class ,function(){
             return FakerFactory::create('zh_CN');
         });
-
+        View::share('categories',Category::getCategoryTree());
     }
 
     /**

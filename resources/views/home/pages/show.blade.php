@@ -1,14 +1,16 @@
-<!doctype html>
-<html lang="cn">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <h1>{{ $page->title }}</h1>
-    <p>{{ $page->content }}</p>
-</body>
-</html>
+@extends('home.layouts.base')
+
+@section('title',$page->seo_title ? : $page->title)
+@section('keywords',$page->seo_keywords ? : config('website.keywords'))
+@section('description',$page->seo_description ? : config('website.description'))
+
+@section('content')
+
+    <section class="page container">
+        <h3>{{ $page->title }}</h3>
+        <aside class="page-content">
+            {{ $page->content }}
+        </aside>
+    </section>
+
+@endsection

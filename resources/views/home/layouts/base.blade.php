@@ -8,20 +8,20 @@
     <meta type="keywords" content="@yield('keywords','')">
     <meta type="description" content="@yield('description','')">
     <title>@yield('title','')</title>
+    {{--<link rel="stylesheet" href="{{ asset('css/base.css') }}">--}}
+    <link rel="stylesheet" href="{{ asset('layui/css/layui.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     @yield('css')
 </head>
 <body>
 
-    @include('_header')
+    @include('home.layouts._header')
 
-    @section('content')
+    @yield('content')
 
-    @endsection
+    @include('home.layouts._footer')
 
-    @include('_footer')
-
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('layui/layui.js') }}"></script>
     @yield('script')
 
 </body>
