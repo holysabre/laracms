@@ -16,7 +16,8 @@ class ArticleController extends BaseController
 
     public function index(Request $request,Article $article, Category $category)
     {
-        $category_ids = Category::getIds($category->id);
+        $model_category = new Category();
+        $category_ids = $model_category->getIds($category->id);
         $lists = $article->withOrder($request->order)
             ->whereIn('category_id',$category_ids)
             ->paginate(10);

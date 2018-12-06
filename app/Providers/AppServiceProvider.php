@@ -26,7 +26,11 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(FakerGenerator::class ,function(){
             return FakerFactory::create('zh_CN');
         });
-        View::share('categories',Category::getCategoryTree());
+        /* 栏目视图共享 */
+        $model_category = new Category();
+        $category_list = $model_category->getTree();
+        View::share('categories',$category_list);
+        /* 栏目视图共享 */
     }
 
     /**

@@ -148,7 +148,7 @@ class CategoryController extends Controller
         $form = new Form(new Category);
         $module_model = new Module();
 
-        $options = $this->category_model->getCategoryOptionsTree();
+        $options = $this->category_model->getOptions();
         $form->select('parent_id', '父ID')->options($options);
         $form->select('module_id', '模块ID')->options($module_model->getOptions());
         $form->text('name', '名称');

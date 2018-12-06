@@ -151,7 +151,7 @@ class ArticleController extends Controller
         $form = new Form(new Article);
 
         $category_model = new Category();
-        $options = $category_model->getCategoryOptionsTree(2,false);
+        $options = $category_model->getOptions(2,false);
         $form->select('category_id', '栏目')->options($options)->rules('required');
         $form->text('title', '标题')->rules('required');
         $form->editor('content', '内容')->rules('required');

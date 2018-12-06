@@ -131,7 +131,7 @@ class PageController extends Controller
         $form = new Form(new Page);
 
         $category_model = new Category();
-        $options = $category_model->getCategoryOptionsTree(1);
+        $options = $category_model->getOptions(1);
         $form->select('category_id', '分类')->options($options);
         $form->text('title', '标题');
         $form->editor('content', '内容');
