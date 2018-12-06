@@ -117,12 +117,28 @@ figure {
 }
 
 .article .article-list {
-  width: 900px;
+  width: 950px;
   float: left;
-  margin-left: 100px;
+  margin-left: 50px;
 }
 
-.article .article-list li {
+.article .article-list div.article-crumb {
+  width: 100%;
+  height: 40px;
+  border-bottom: 1px solid #ccc;
+}
+
+.article .article-list div.article-crumb a {
+  line-height: 40px;
+  font-size: 14px;
+}
+
+.article .article-list p {
+  font-size: 20px;
+  text-align: center;
+}
+
+.article .article-list ul li {
   width: 200px;
   float: left;
   margin: 10px;
@@ -131,23 +147,23 @@ figure {
   transition: ease 0.3s;
 }
 
-.article .article-list li:hover {
+.article .article-list ul li:hover {
   border: 1px solid #666;
 }
 
-.article .article-list li:hover figure figcaption {
+.article .article-list ul li:hover figure figcaption {
   background-color: #666;
 }
 
-.article .article-list li figure {
+.article .article-list ul li figure {
   width: 200px;
 }
 
-.article .article-list li figure img {
+.article .article-list ul li figure img {
   width: 200px;
 }
 
-.article .article-list li figure figcaption {
+.article .article-list ul li figure figcaption {
   font-size: 14px;
   text-align: center;
   line-height: 30px;

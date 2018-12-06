@@ -22,7 +22,7 @@ function make_excerpt($value, $length = 200)
  * @param $array
  * @param string $primary_key
  * @return array
- * 返回以$parimary_key(默认id)值为主键的数组
+ * 返回以$primary_key(默认id)值为主键的数组
  */
 function arrayListKey($array,$primary_key = 'id')
 {
@@ -152,20 +152,31 @@ function getParent($id_pid,$array=array(), $level = 2)
     return $list;
 }
 
+/**
+ * @param $array
+ * @return array
+ * 获取子集树
+ */
 function getSonTree($array)
 {
     $tree = [];
     $items = arrayListKey($array);
     foreach ($items as $key => $value) {
         if (isset($items[$value['parent_id']])) {
-            $items[$value['parent_id']]['son'][] = &$items[$key];
+            $items[$value['parent_id']]['son'][$key] = &$items[$key];
         } else {
-            $tree[] = &$items[$key];
+            $tree[$key] = &$items[$key];
         }
     }
     return $tree;
 }
 
+/**
+ * @param $id
+ * @param $array
+ * @return array
+ * 获取指定id下的所有id
+ */
 function getSonIds($id,$array)
 {
     static $ids = [];
@@ -181,4 +192,20 @@ function getSonIds($id,$array)
         }
     }
     return $ids;
+}
+
+/**
+ * @param $array
+ * @param $id
+ * @return mixed
+ * 获取最顶级id
+ */
+function getTopId($array,$id)
+{
+    if($array[$id]['parent_id'] == 0){
+        return $id;
+    }else{
+        $pid = $array[$id]['parent_id'];
+        return getTopId($array,$pid);
+    }
 }

@@ -5,47 +5,13 @@
 @section('description',$category->seo_description ? : config('website.description'))
 
 @section('content')
-{{--@php dump() @endphp--}}
+{{--@php dump($category_list);@endphp--}}
 <section class="article container">
-    <nav class="sidebar">
-        <span class="sidebar-theme">产品中心</span>
-        <ul>
-            <li class="sub-menu">
-                <a href="">111</a>
-                <ul>
-                    <li class="sub-menu">
-                        <a href="">1-111</a>
-                        <ul>
-                            <li>
-                                <a href="">2-111</a>
-                            </li>
-                            <li>
-                                <a href="">2-222</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="">1-222</a>
-                        <ul>
-                            <li>
-                                <a href="">2-111</a>
-                            </li>
-                            <li>
-                                <a href="">2-222</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="">222</a>
-            </li>
-            <li>
-                <a href="">333</a>
-            </li>
-        </ul>
-    </nav>
+    @include('home.layouts._sidebar',['current'=>Route::current()->category->id])
     <aside class="article-list">
+        <div class="article-crumb">
+            <a href="">网站首页</a> / <a href="">产品中心</a> / <a href="">分类一</a>
+        </div>
         @empty($lists)
             <p>无数据</p>
         @else

@@ -33,7 +33,8 @@ trait CategoryTreeHelper
             $categories = Category::query()->select('*')
                 ->where('status',1)
                 ->orderBy('order','asc')
-                ->get();
+                ->get()->toArray();
+            $categories = arrayListKey($categories);
             return $categories;
         });
     }
@@ -62,7 +63,7 @@ trait CategoryTreeHelper
      */
     public function getTree()
     {
-        $category_list = getSonTree($this->getList()->toArray());
+        $category_list = getSonTree($this->getList());
         return $category_list;
     }
 
@@ -104,7 +105,7 @@ trait CategoryTreeHelper
      */
     public function getIds($id)
     {
-        $ids = getSonIds($id,$this->getList()->toArray());
+        $ids = getSonIds($id,$this->getList());
         return $ids;
     }
 }

@@ -28,8 +28,10 @@ class AppServiceProvider extends ServiceProvider
         });
         /* 栏目视图共享 */
         $model_category = new Category();
-        $category_list = $model_category->getTree();
-        View::share('categories',$category_list);
+        $category_list = $model_category->getList();
+        View::share('category_list',$category_list);
+        $category_tree = $model_category->getTree();
+        View::share('category_tree',$category_tree);
         /* 栏目视图共享 */
     }
 

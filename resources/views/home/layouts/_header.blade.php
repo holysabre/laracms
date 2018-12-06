@@ -3,7 +3,7 @@
         <ul class="layui-nav" lay-filter="">
             <li class="layui-nav-item layui-this"><a href="/">网站首页</a></li>
 
-            @foreach($categories as $item)
+            @foreach($category_tree as $item)
                 <li class="layui-nav-item">
                     <a href="{{ url('home/'.$item['index_template'],['id'=>$item['id']]) }}">{{$item['name']}}</a>
                     @isset($item['son'])
