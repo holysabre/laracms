@@ -18,7 +18,7 @@
             <ul>
                 @foreach($lists as $item)
                     <li>
-                        <a href="">
+                        <a href="{{ url('home/'.$category->index_template.'/'.$category->id.'/'.$item->id) }}">
                             <figure>
                                 <img src="{{ asset('uploads').'/'.$item->picture }}" alt="{{ $item->title }}">
                                 <figcaption>{{ $item->title }}</figcaption>
@@ -29,8 +29,10 @@
                 <div class="clear"></div>
             </ul>
         @endempty
+        {{ $lists->links() }}
     </aside>
     <div class="clear"></div>
+
 </section>
 
 @endsection

@@ -20,13 +20,32 @@ class ArticleController extends BaseController
         $category_ids = $model_category->getIds($category->id);
         $lists = $article->withOrder($request->order)
             ->whereIn('category_id',$category_ids)
-            ->paginate(10);
-//        dump($lists);
+            ->paginate(1);
+        dump($lists);
         return view('home.articles.article',compact('lists','category'));
     }
 
-    public function show(Article $article)
+    public function show(Request $request, Category $category, Article $article)
     {
 
+        if(empty($article->seo_title)){
+            $article->seo_title = $article->title;
+        }
+        if(empty($article->seo_keywords)){
+            if(empty($category->seo_keywords)){
+                $article->seo_keywords = config('website.keywords');
+            }else{
+                $article->seo_keywords = $category->seo_keywords;
+            }
+        }
+        if(empty($article->seo_description)){
+            if(empty($category->seo_description)){
+                $article->seo_description = config('website.description');
+            }else{
+                $article->seo_description = $category->seo_description;
+            }
+        }
+
+        return view('home.articles.show', compact('article','category'));
     }
 }

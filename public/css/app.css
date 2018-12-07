@@ -122,17 +122,6 @@ figure {
   margin-left: 50px;
 }
 
-.article .article-list div.article-crumb {
-  width: 100%;
-  height: 40px;
-  border-bottom: 1px solid #ccc;
-}
-
-.article .article-list div.article-crumb a {
-  line-height: 40px;
-  font-size: 14px;
-}
-
 .article .article-list p {
   font-size: 20px;
   text-align: center;
@@ -171,5 +160,77 @@ figure {
   color: #ffffff;
   -webkit-transition: ease 0.3s;
   transition: ease 0.3s;
+}
+
+.article .article-list ul.pagination li {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  border: 1px solid #ccc;
+  margin: 0 3px;
+}
+
+.article .article-list ul.pagination li.active {
+  background-color: #666;
+  color: #fff;
+}
+
+.article .article-list ul.pagination li span,
+.article .article-list ul.pagination li a {
+  display: block;
+  text-align: center;
+  font-size: 14px;
+  line-height: 25px;
+}
+
+.article .article-crumb {
+  width: 100%;
+  height: 40px;
+  border-bottom: 1px solid #ccc;
+}
+
+.article .article-crumb a {
+  line-height: 40px;
+  font-size: 14px;
+}
+
+.article .article-show {
+  width: 950px;
+  float: left;
+  margin-left: 50px;
+}
+
+.article .article-show .article-show-main h3 {
+  text-align: center;
+  font-size: 20px;
+  margin: 20px 0;
+}
+
+.article .article-show .article-show-main .article-show-picture {
+  width: 500px;
+  height: 500px;
+  border: 1px solid #ccc;
+  margin: 0 auto;
+}
+
+.article .article-show .article-show-main .article-show-picture-set {
+  margin: 20px 0;
+}
+
+.article .article-show .article-show-main .article-show-picture-set ul li {
+  width: 100px;
+  height: 100px;
+  border: 1px solid #ccc;
+  float: left;
+  margin-right: 10px;
+}
+
+.article .article-show .article-show-main .article-show-picture-set ul li img {
+  width: 100px;
+  height: 100px;
+}
+
+.article .article-show .article-show-main article img {
+  width: 100%;
 }
 
